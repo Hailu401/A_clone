@@ -20,7 +20,8 @@ function Product() {
  }, [])
 
   return (
-    <section className={classes.Allproduct_container}>
+    <section className={classes.Allproduct_section}>
+    <div className={classes.Allproduct_container}>
 
         {
             products && products.map((singleProduct)=>{
@@ -30,6 +31,7 @@ function Product() {
          }
 
 
+    </div>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 
 import './app.css'
+import './index.css'
 
 import Carousel from "./Components/Carousel/CarouselEffect";
 import Category from "./Components/Category/Category";
