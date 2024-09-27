@@ -39,13 +39,11 @@ button:hover {
     justify-items: center;
     max-width: 1450px;
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, 1fr); */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 50px;
 }
 
 .Allproduct_section {
-    /* margin: 0 auto; */
     margin-left: 80px;
     margin-right: 80px;
 }
