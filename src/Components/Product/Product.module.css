@@ -12,12 +12,11 @@
     display: block;
 }
 .card_container img{
-    padding: 10px;
-    padding: 10px;
+    padding-left: 70px;
+    padding-right: 60px;
     width: 100%;
     max-height: 150px;
     max-width: 100px;
-    align-items: center;
     object-fit: contain;
     
 }
@@ -55,4 +54,35 @@ button:hover {
     display: flex;
     align-items: center;
     padding: 10px 0px;
+}
+.product_flexed {
+box-shadow: none;
+height: auto;
+display: flex;
+gap: 50px;
+width: 100%;
+}
+.product_flexed h3 {
+    padding: 20px 0px;
+}
+.product_flexed .button {
+    display: block;
+    position: static;
+    width: 150px;
+    margin-right: 40px;
+}
+.product_flexed {
+    height: 50vh;
+}
+.product_flexed img {
+    width: 400px !important;
+    height: auto;
+    padding: 20px;
+}
+@media screen and (max-width: 768px) {
+    .product_flexed {
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
