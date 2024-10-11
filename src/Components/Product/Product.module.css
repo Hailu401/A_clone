@@ -79,6 +79,7 @@ width: 100%;
     height: auto;
     padding: 20px;
 }
+
 @media screen and (max-width: 768px) {
     .product_flexed {
         display: flex;
