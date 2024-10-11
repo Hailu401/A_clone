@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import classes from './Header.module.css'
 import LowerHeader from './LowerHeader';
 import {SlLocationPin} from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import { DataContext } from '../Dataprovider/Dataprovider';
 
 function Header() {
+  const [{basket}, dispatch] = useContext(DataContext);
+ 
   return (
     <>
       <section>
         <div className={classes.header_container}>
           {/* { logo search} */}
           <div className={classes.logo_container}>
-            <Link to ="/">
+            <Link to="/">
               <img
                 src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png"
                 alt="amazon logo"
@@ -64,9 +67,9 @@ function Header() {
               <span>& Orders</span>
             </Link>
             {/* cart */}
-            <Link to ="/cart" className={classes.cart}>
+            <Link to="/cart" className={classes.cart}>
               <BiCart size={35} />
-              <span>0</span>
+              <span>{basket.length}</span>
             </Link>
           </div>
         </div>
