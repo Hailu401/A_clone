@@ -29,6 +29,7 @@ setIsLoading(false)
      product={product}
      flex={true}
      renderDesc = {true}
+     renderAddBtn={true}
      />
       )}
    

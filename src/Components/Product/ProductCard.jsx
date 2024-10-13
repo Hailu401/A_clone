@@ -7,10 +7,10 @@ import { DataContext } from '../Dataprovider/Dataprovider';
 import { Type } from '../../Pages/Utilities/action.type';
 
 
-function ProductCard({product,flex, renderDesc}) {
+function ProductCard({product,flex, renderDesc, renderAddBtn}) {
     const {image, title, id, rating, price, description} = product;
     const [state, dispatch]= useContext(DataContext)
-
+  
     
     const Add_To_Cart = ()=>{
       dispatch({
@@ -26,9 +26,10 @@ function ProductCard({product,flex, renderDesc}) {
       });
     }
   return (
-    
     <div
-      className={`${classes.card_container} ${flex?classes.product_flexed : ''}`}
+      className={`${classes.card_container} ${
+        flex ? classes.product_flexed : ""
+      }`}
     >
       <Link to={`/products/${id}`}>
         <img src={image} alt="" className={classes.img_container} />
@@ -36,7 +37,7 @@ function ProductCard({product,flex, renderDesc}) {
 
       <div>
         <h3>{title}</h3>
-        {renderDesc && <div style={{maxWidth: "750px"}}>{description}</div>}
+        {renderDesc && <div style={{ maxWidth: "750px" }}>{description}</div>}
         {/* <p>{product.decription}</p> */}
         <div className={classes.rating}>
           {/* rating */}
@@ -48,7 +49,13 @@ function ProductCard({product,flex, renderDesc}) {
           {/* price */}
           <CurrenyFormat amount={price} />
         </div>
-        <button className={classes.button} onClick={Add_To_Cart}>add to cart</button>
+        {renderAddBtn && 
+          <button className={classes.button} onClick={Add_To_Cart}>
+            {" "}
+            add to cart
+          </button>
+        }
+       
       </div>
     </div>
   );
