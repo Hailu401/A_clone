@@ -51,7 +51,7 @@ function Cart() {
                     product={item}
                     flex={true}
                     renderDesc={true}
-                    renderAddBtn={false}
+                    renderAddBtn={true}
                   />
                   <div className={classes.btn_container}>
                     <button
@@ -93,4 +93,4 @@ function Cart() {
   );
 }
 
-export default Cart
+export default Cart;
