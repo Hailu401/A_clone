@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import classes from './Auth.module.css'
 import {auth} from '../Utilities/firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
-import {DataContext} from '../../Components/Dataprovider/Dataprovider'
-import { useContext } from 'react';
+import {DataContext} from '../../Components/Dataprovider/Dataprovider';
 import { Type } from '../Utilities/action.type';
 import{ClipLoader} from 'react-spinners'
 function Auth() {
@@ -15,6 +14,7 @@ function Auth() {
     signIn:false,
     signUp: false
   })
+
 const navigate = useNavigate()
 
   const [user, dispatch] = useContext(DataContext)
