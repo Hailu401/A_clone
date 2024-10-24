@@ -41,7 +41,7 @@ function ProductCard({product,flex, renderDesc, renderAddBtn}) {
         {/* <p>{product.decription}</p> */}
         <div className={classes.rating}>
           {/* rating */}
-          <Rating value={rating?.rate} precision={0.1} />
+          <Rating value={rating?.rate} precision={0.2} />
           {/* count */}
           <small>{rating?.count}</small>
         </div>
