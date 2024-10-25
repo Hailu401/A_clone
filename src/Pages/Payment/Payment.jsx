@@ -81,8 +81,8 @@ const navigate = useNavigate()
         <div className={classes.flex}>
           <h3>Delivery Address</h3>
           <div>
-            <div>{user.email}</div>
-            <div>Moyale, kabanawa</div>
+            <div>{(user?.email)}</div>
+            <div>Moyale</div>
             <div>Moyale, Ethiopia</div>
           </div>
         </div>
