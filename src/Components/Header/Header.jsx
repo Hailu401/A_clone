@@ -73,9 +73,9 @@ function Header() {
                         Sign Out
                       </span>
                     </>
-                  ) : (
+                  ): (
                     <>
-                      <p>Hello, Sign in</p>
+                      <p> Sign in</p>
                       <span>Account & Lists</span>
                     </>
                   )}

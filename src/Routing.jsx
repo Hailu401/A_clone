@@ -25,23 +25,29 @@ function Routing() {
         <Route
           path="/payment"
           element={
-            <Protected msg={"you have to login/Sign up to pay"} redirect={"/payment"}>
+            <Protected
+              msg={"you have to login/Sign up to pay"}
+              redirect={"/payment"}
+            >
               <Elements stripe={stripePromise}>
                 <Payment />
               </Elements>
             </Protected>
           }
         />
-        <Route path="/orders" element={
-
-          <Protected msg={"you have to login to check your order"} redirect={"/orders"}>
+        <Route
+          path="/orders"
+          element={
+            <Protected
+              msg={"you have to login to check your order"}
+              redirect={"/orders"}
+            >
               <Elements stripe={stripePromise}>
-                <Payment />
+                <Order />
               </Elements>
-              <Order />
             </Protected>
-          
-          } />
+          }
+        />
         <Route path="/category/:categoryName" element={<Result />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />

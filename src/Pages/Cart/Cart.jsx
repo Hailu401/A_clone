@@ -50,7 +50,7 @@ function Cart() {
                     key={i}
                     product={item}
                     flex={true}
-                    renderDesc={true}
+                    renderDesc={false}
                     renderAddBtn={false}
                   />
                   <div className={classes.btn_container}>

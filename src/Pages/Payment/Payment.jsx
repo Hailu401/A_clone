@@ -12,6 +12,7 @@ import { AxiosInstance } from '../../Api/axios';
 import { ClipLoader } from "react-spinners";
 import { db } from '../Utilities/firebase';
 import { useNavigate } from 'react-router-dom';
+import { Type } from '../Utilities/action.type';
 function Payment() {
   const [{user, basket }, dispatch] = useContext(DataContext);
 
@@ -44,27 +45,39 @@ const navigate = useNavigate()
         url: `/payment/create?total=${totalPrice * 100}`,
       });
       console.log(response.data);
-      setProcess(true)
+      setProcess(true);
       const clientSecret = response.data?.clientSecret;
       //2.client side(react side confirmation)
-      const {paymentIntent} = await stripe.confirmCardPayment(clientSecret, {
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
       });
       // console.log(paymentIntent);
-     
+
       //3.after the confirmation ---> order firestore database save, clear basket
-      await db.collection("users").doc(user.uid).collection("orders").doc(paymentIntent.id)
-      .set({
-        basket: basket,
-        amount: paymentIntent.amount,
-        created: paymentIntent.created,
+      await db
+        .collection("users")
+        .doc(user.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+      // set empty basket
+      dispatch(
+        {
+          type:Type.SET_EMPTY_BASKET
+        }
+      )
+      setProcess(false);
+      navigate("/orders", {
+        state: {
+          message: "you have placed new order",
+        },
       });
-       setProcess(false);
-       navigate("/orders", {state:{
-        message: "you have placed new order"
-       }})
     } catch (error) {
       setProcess(false)
     }
